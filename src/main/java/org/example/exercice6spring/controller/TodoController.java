@@ -48,4 +48,11 @@ public class TodoController {
     public ResponseEntity<List<Todo>> findByStatus(@PathVariable("status") boolean status){
         return ResponseEntity.ok(service.findByIsValidated(status));
     }
+
+    //changer le status de la to do
+    @PutMapping("/change-status/{id}")
+    public ResponseEntity<Todo> changeStatus(@PathVariable("id") Long id){
+        return ResponseEntity.ok(service.changeStatus(id));
+
+    }
 }

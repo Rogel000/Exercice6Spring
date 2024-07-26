@@ -33,4 +33,11 @@ public class TodoService {
     public List<Todo> findByIsValidated(boolean status) {
         return todoRepository.findByIsValidated(status);
     }
+
+    public Todo changeStatus(long id) {
+        Todo todo = findById(id);
+        todo.setIsValidated(!todo.getIsValidated());
+        todoRepository.save(todo);
+        return todo;
+    }
 }
